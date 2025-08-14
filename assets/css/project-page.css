@@ -1,0 +1,252 @@
+/*
+ * project-page.css
+ * Styles for individual project pages.
+*/
+
+/* Define your brand color for reuse */
+:root {
+    --brand-orange: #ff6600;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* General spacing and typography */
+.project-intro h1 {
+    color: #1a1a1a;
+}
+
+/* Info Card styling */
+.info-card h6 {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.info-card p {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Text Block & Blockquote Styling */
+.text-block h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.text-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.blockquote {
+    border-left: 4px solid var(--brand-orange);
+    font-size: 1.25rem;
+    color: #6c757d;
+}
+
+/* Gallery and Image styling */
+.gallery-block img,
+.carousel-block img,
+.video-block .ratio {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-block img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+
+/* VIDEO */
+.video-wrapper {
+    position: relative;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+}
+
+.aspect-16x9 {
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+}
+
+/* Swiper Carousel Customization */
+.carousel-block {
+    background-color: #f8f9fa;
+    /* Light grey background to stand out */
+    padding: 3rem;
+    border-radius: .375rem;
+    /* Match Bootstrap's border-radius */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Style Swiper controls with your brand color */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--brand-orange) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--brand-orange) !important;
+}
+
+/*
+ * Project Index / Table of Contents Styling
+*/
+.project-index {
+    background-color: #f8f9fa;
+    /* A light grey to stand out */
+    border-left: 4px solid var(--brand-orange);
+    /* Orange accent border */
+    padding: 1.5rem 2rem;
+    border-radius: 0 .375rem .375rem 0;
+    /* Rounded corners */
+}
+
+.project-index h4 {
+    margin-bottom: 1rem;
+    color: #343a40;
+}
+
+.project-index ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.project-index li {
+    margin-bottom: 0.75rem;
+}
+
+.project-index a {
+    color: #495057;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Add an arrow icon before the link using SVG */
+.project-index a::before {
+    content: '›';
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--brand-orange);
+    margin-right: 0.75rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-index a:hover {
+    color: var(--brand-orange);
+}
+
+.project-index a:hover::before {
+    transform: translateX(3px);
+}
+
+/* Back to Top and Back to Main Page buttons */
+
+/* Back to top and to main page buttons */
+.custom-btn {
+    min-width: 180px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    border: 2px solid var(--brand-orange);
+    background-color: white;
+    color: var(--brand-orange);
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+    background-color: var(--brand-orange);
+    color: white;
+}
+
+.custom-btn .arrow {
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.custom-btn:hover .arrow {
+    color: white;
+}
+
+/* Compact Floating Button */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background-color: white;
+    border: 2px solid var(--brand-orange);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-orange);
+    font-size: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: opacity 0.4s ease, visibility 0.4s ease, background-color 0.3s;
+    z-index: 999;
+  }
+  
+  /* When visible */
+  #backToTop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Hover/focus effect */
+  #backToTop:hover {
+    background-color: var(--brand-orange);
+    color: white;
+  }
+ 
+  /* Mobile adjustments */
+  @media (max-width: 576px) {
+    #backToTop {
+      bottom: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+  }
